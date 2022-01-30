@@ -7,7 +7,7 @@ import { client } from "./index.js";
     return await client
         .db("b28wd")
         .collection("capstone")
-        .updateOne({_id: ObjectId(id)}, { $set: data });
+        .updateOne({id:id}, { $set: data });
 }
  async function createTickets(data) {
     return await client.db("b28wd").collection("capstone").insertMany(data);
@@ -27,14 +27,14 @@ async function createUser(data) {
     return await client
         .db("b28wd")
         .collection("capstone")
-        .deleteOne({ _id: ObjectId(id)});
+        .deleteOne({ id: id});
 }//_id: ObjectId(id) id:id
  async function getTicketById(id) {
      console.log("***",id);
     return await client
         .db("b28wd")
         .collection("capstone")
-        .findOne({ _id: ObjectId(id)});
+        .findOne({ id: id});
 }
 async function getUserByName(username) {
     
